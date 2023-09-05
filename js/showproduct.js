@@ -6,7 +6,7 @@ export const showproduct = () => {
   if(prams.category !== "") {
     categories = `&category=${prams.category}`;
   }
-  let api = `http://localhost:3000/products?q=${prams.q}${categories}&_sort=${prams.sort}&_order=${prams.order}&_page=${prams.page}&_limit=${limit}`;
+  let api = `https://data-0t5n.onrender.com/products?q=${prams.q}${categories}&_sort=${prams.sort}&_order=${prams.order}&_page=${prams.page}&_limit=${limit}`;
   console.log(api);
   fetch(api)
     .then(res => res.json())

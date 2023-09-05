@@ -2,7 +2,7 @@ import { showproduct } from "./showproduct.js"
 import { prams } from "./varibles.js"
 const num = document.querySelector(".number");
 const fetchApi1 = () => {
-  fetch('http://localhost:3000/categories')
+  fetch('https://data-0t5n.onrender.com/categories')
     .then(res => res.json())
     .then(data => {
       let cate = data.map((item) => {
