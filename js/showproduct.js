@@ -11,28 +11,35 @@ export const showproduct = () => {
   fetch(api)
     .then(res => res.json())
     .then(data => {
-      let pro = data.map(item => {
-        return `
-          <div class="product__item">
-            <div class="product__image">
-              <img src="${item.thumbnail}" alt="${item.title}">
+      if(data) {
+        let pro = data.map(item => {
+          return `
+            <div class="product__item">
+              <div class="product__image">
+                <img src="${item.thumbnail}" alt="${item.title}">
+              </div>
+              <div class="product__title">
+                ${item.title}
+              </div>
+              <div class="product__discountPercentage">${item.discountPercentage}%</div>
+              <div class="price__stock"> 
+                <span class="product__price">
+                ${item.price}$
+                </span>
+                <span class="product__stock">
+                  Còn lại: ${item.stock} sản phẩm
+                </span>
+              </div>
             </div>
-            <div class="product__title">
-              ${item.title}
-            </div>
-            <div class="product__discountPercentage">${item.discountPercentage}%</div>
-            <div class="price__stock"> 
-              <span class="product__price">
-              ${item.price}$
-              </span>
-              <span class="product__stock">
-                Còn lại: ${item.stock} sản phẩm
-              </span>
-            </div>
-          </div>
-        `
-      })
-      const product = document.querySelector(".product__list");
-      product.innerHTML = pro.join("");
+          `
+        })
+        const product = document.querySelector(".product__list");
+        product.innerHTML = pro.join("");
+      }
+      else {
+        let load = " <h2>Đang tải dữ liệu xin vui long đợi trong giây lát...</h2>"
+        const product = document.querySelector(".product__list");
+        product.innerHTML = load;  
+      }
     })
 }
