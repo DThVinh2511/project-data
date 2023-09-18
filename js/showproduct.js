@@ -36,10 +36,5 @@ export const showproduct = () => {
         const product = document.querySelector(".product__list");
         product.innerHTML = pro.join("");
       }
-      else {
-        let load = " <h2>Đang tải dữ liệu xin vui long đợi trong giây lát...</h2>"
-        const product = document.querySelector(".product__list");
-        product.innerHTML = load;  
-      }
     })
 }
